@@ -1,0 +1,244 @@
+* {
+    margin: 0px;
+    border: 0px;
+    padding: 0px;
+    list-style: none;
+    text-decoration: none;
+}
+
+/* Body (main body) */
+
+header {
+    height: 20vh;
+    background-color: #222;
+    border-bottom: solid 2px #fcefe3;
+    display: flex;
+}
+
+main {
+    padding: 0px;
+}
+
+footer {
+    height: 35vh;
+    background-color: #222;
+    display: flex;
+}
+
+/* header */
+
+.header_div {
+    height: 100%;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    font-size: 3vh;
+}
+
+#header_logo {
+    height: 12.5vh;
+    width: 12.5vh;
+    margin: 0px 0px 0px 4vw;
+    border-radius: 50%;
+    background-color: #fcefe3;
+}
+
+header div ul {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3vw
+} 
+
+header div ul li a{
+    color: #fcefe3;
+} 
+
+header div ul li a {
+    position: relative;
+    text-decoration: none;
+    color: #fcefe3; /* or your preferred text color */
+}
+  
+header div ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: -0.5vh;
+    left: 0;
+    height: 2px;
+    width: 0;
+    background-color: #fcefe3; /* same as text color or desired underline color */
+    transition: width 0.5s ease-out;
+}
+  
+header div ul li a:hover::after {
+    width: 100%;
+}
+
+/* main */
+
+/* Section 1 */
+
+#section_1 {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+    background-color: #fcefe3;
+    padding: 15vh 0vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5vh;
+}
+
+#section_1_title {
+    color: #222;
+    font-size: 9vh;
+}
+
+.bloc_div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 1vh;
+}
+
+.bloc_div_title {
+    color: #222;
+    font-size: 6vh;
+    width: 55%;
+    text-decoration: underline;
+    margin: 0vh 0vh 2.5vh 0vh;
+}
+
+.bloc_list_title {
+    color: #222;
+    font-size: 3.75vh;
+    width: 55%;
+}
+
+.bloc_list_title_desc {
+    margin: -1vh 0vh 1vh 0vh;
+    font-style: italic;
+    width: 54.75%;
+}
+
+.bloc_list {
+    color: #222;
+    width: 50%;
+    margin: 0vh 0vh 5vh 0vh;
+}
+
+.bloc_list_item {
+    font-size: 2.75vh;
+    list-style: disc;
+}
+
+/* Footer */
+
+.footer_div {
+    height: 100%;
+    width: 50%
+}
+
+#loca {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#loca_div {
+    width: 85%;
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+}
+
+#loca_div p {
+    color: #fcefe3;
+    font-size: 2.8vh;
+}
+
+#google_maps {
+    width: 70%;
+    height: 70%;
+}
+
+#coordonnees_div {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 3vh;
+    justify-content: center;
+}
+
+#coordonnees_div_title {
+    font-size: 5vh;
+    color: #fcefe3;
+}
+
+#coordonnees_div_box {
+    display: flex;
+    gap: 2vw;
+    align-items: center;
+}
+
+.coordonnees_div_list {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    row-gap: 3vh;
+}
+
+.coordonnees_div_items{
+    display: flex;
+    align-items: center;
+    gap: 1vw;
+}
+
+.coordonnees_div_img {
+    height: 5vh;
+    border: solid 2px #fcefe3;
+    border-radius: 30%;
+}
+
+.coordonnees_div_txt {
+    font-size: 3vh;
+    color: #fcefe3;
+}
+
+/* Scroll top btn */
+
+#scrollTopBtn {
+    height: 7.5vh;
+    width: 7.5vh;
+    position: fixed;
+    bottom: 7.5vh;
+    right: 7.5vh;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #222;
+    border: solid 2px #fcefe3;
+    padding: 12px 16px;
+    border-radius: 50%;
+    font-size: 18px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s;
+}
+  
+#scrollTopBtn:hover {
+    background-color: #333;
+    border-color: #2f2f2f;
+}
+
+#scroll_up_img {
+    height: 100%;
+    width: 100%;
+}
