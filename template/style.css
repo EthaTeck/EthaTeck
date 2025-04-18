@@ -13,6 +13,7 @@ header {
     background-color: #222;
     border-bottom: solid 2px #fcefe3;
     display: flex;
+    transition: background-color 0.5s ease-in;
 }
 
 main {
@@ -20,6 +21,7 @@ main {
 }
 
 footer {
+    border-top: solid 2px #fcefe3;
     height: 35vh;
     background-color: #222;
     display: flex;
@@ -50,31 +52,88 @@ header div ul {
     align-items: center;
     justify-content: center;
     gap: 3vw
-} 
+}
 
-header div ul li a{
+.header_link {
     color: #fcefe3;
-} 
+}
 
-header div ul li a {
+.header_link {
     position: relative;
     text-decoration: none;
-    color: #fcefe3; /* or your preferred text color */
+    color: #fcefe3;
+    /* or your preferred text color */
 }
-  
-header div ul li a::after {
+
+.header_link::after {
     content: '';
     position: absolute;
     bottom: -0.5vh;
     left: 0;
     height: 2px;
     width: 0;
-    background-color: #fcefe3; /* same as text color or desired underline color */
+    background-color: var(--underline-color, #fcefe3);  /* Use dynamic color */
     transition: width 0.5s ease-out;
 }
-  
-header div ul li a:hover::after {
+
+.header_link:hover::after {
     width: 100%;
+}
+
+#li_stage_link {
+    position: relative;
+}
+
+#li_stage_link {
+    position: relative;
+    width: fit-content;
+    /* Adjust to your layout needs */
+}
+
+#stage_link {
+    color: #fcefe3;
+    display: flex;
+    align-items: center;
+    gap: 1vh;
+    padding: 0.5vh 3vh;
+    margin: -0.5vh -3.4vh;
+    text-decoration: none;
+    box-sizing: border-box;
+    transition: background-color 0.3s ease;
+}
+
+#stage_link_arrow {
+    margin-top: 0.5vh;
+    height: 5vh;
+    transition: transform 0.5s ease-in;
+}
+
+#stage_box {
+    display: none;
+    position: absolute;
+    background-color: #fcefe3;
+    border-bottom: solid 0.3vh #222;
+    border-left: solid 0.3vh #222;
+    border-right: solid 0.3vh #222;
+    margin-top: 0.5vh;
+    z-index: 10;
+    left: 50%;
+    transform: translateX(-50%);
+    /* Centers the bow horizontally */
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.stage_box_item {
+    color: #222;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 6vh;
+}
+
+.stage_box_item:hover {
+    background-color: rgb(232, 219, 207);
 }
 
 /* main */

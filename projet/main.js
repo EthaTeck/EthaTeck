@@ -24,6 +24,7 @@ function applyHoverStyles() {
   if (hoverTimeout) clearTimeout(hoverTimeout);
 
   header.style.backgroundColor = '#fcefe3';
+  header.style.borderBottom = '0.3vh solid #222';
   for (let i = 0; i < header_links.length; i++) {
     header_links[i].style.color = '#222';
     header_links[i].style.setProperty('--underline-color', '#222'); // Set underline color to dark
@@ -46,6 +47,7 @@ function applyHoverStyles() {
 
 function removeHoverStyles() {
   header.style.backgroundColor = '';
+  header.style.borderBottom = '';
   for (let i = 0; i < header_links.length; i++) {
     header_links[i].style.color = '';
     header_links[i].style.setProperty('--underline-color', '#fcefe3'); // Reset underline color to the original

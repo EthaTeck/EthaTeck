@@ -17,12 +17,21 @@
         </div>
         <div class="header_div">
             <ul>
-                <li><a href="../index.html">Acceuil</a></li>
-                <li><a href="#">Veille</a></li>
-                <li><a href="">Stage</a></li>
-                <li><a href="">Projets</a></li>
-                <li><a href="">CV</a></li>
-                <li><a href="../competence/index.html">Compétence</a></li>
+                <li><a class="header_link" href="../index.html">Acceuil</a></li>
+                <li><a class="header_link" href="../veille/index.html">Veille</a></li>
+                <li id="li_stage_link">
+                    <p id="stage_link" href="#">
+                      Stage
+                      <img id="stage_link_arrow" src="../img/up-arrow.png" alt="">
+                    </p>
+                    <div id="stage_box">
+                        <a class="stage_box_item" href="../stage/annee_1/index.html">1er année</a>
+                        <a class="stage_box_item" href="../stage/annee_2/index.html">2ème année</a>
+                    </div>
+                </li>                  
+                <li><a class="header_link" href="../projet/index.html">Projets</a></li>
+                <li><a class="header_link" href="">CV</a></li>
+                <li><a class="header_link" href="../competence/index.html">Compétence</a></li>
             </ul>
         </div>
     </header>
@@ -93,7 +102,7 @@
                         </a>
                     </div>
                     <div id="bg_2" class="veille_ressources_box_bg">
-                        <a href="" target="_blank" type="link">
+                        <a href="https://www.fredzone.org/percee-majeure-en-mecanique-quantique-421432" target="_blank" type="link">
                             <div class="veille_ressources_box">
                                 <h3>L’intrication mécanique quantique</h3>
                                 <p>Des chercheurs de l'université de Copenhague et de l'université de la Ruhr à Bochum
@@ -110,7 +119,7 @@
                 </div>
                 <div class="veille_ressources_box_div">
                     <div id="bg_3" class="veille_ressources_box_bg">
-                        <a href="" target="_blank" type="link">
+                        <a href="https://www.bbc.com/afrique/articles/c3g395ee3n4o" target="_blank" type="link">
                             <div class="veille_ressources_box">
                                 <h3>D'une puce à une autre</h3>
                                 <p>Des chercheurs de l'Université du Sussex ont réalisé une percée dans l'informatique
@@ -125,7 +134,7 @@
                         </a>
                     </div>
                     <div id="bg_4" class="veille_ressources_box_bg">
-                        <a href="" target="_blank" type="link">
+                        <a href="https://www.zdnet.fr/actualites/la-botte-secrete-de-l-informatique-quantique-pour-lutter-contre-le-rechauffement-climatique-39928891.htm" target="_blank" type="link">
                             <div class="veille_ressources_box">
                                 <h3>Impact environnemental</h3>
                                 <p>Les ordinateurs quantiques pourraient résoudre des problèmes complexes liés au
@@ -143,7 +152,7 @@
                 </div>
                 <div class="veille_ressources_box_div">
                     <div id="bg_5" class="veille_ressources_box_bg">
-                        <a href="" target="_blank" type="link">
+                        <a href="https://trustmyscience.com/start-up-francaise-qubits-chats-ordinateur-quantique-corriger-erreurs/" target="_blank" type="link">
                             <div class="veille_ressources_box">
                                 <h3>Des qubits de chats</h3>
                                 <p>La start-up française Alice&Bob développe un ordinateur quantique en utilisant des
@@ -159,7 +168,7 @@
                         </a>
                     </div>
                     <div id="bg_6" class="veille_ressources_box_bg">
-                        <a href="" target="_blank" type="link">
+                        <a href="https://www.01net.com/actualites/intel-apprend-le-c-a-ses-ordinateurs-quantique-pour-seduire-les-programmeurs-classiques.html" target="_blank" type="link">
                             <div class="veille_ressources_box">
                                 <h3>Du C++ dans mon qubit</h3>
                                 <p>Intel a lancé un nouveau kit de développement pour ordinateurs quantiques, mettant

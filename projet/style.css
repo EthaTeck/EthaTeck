@@ -72,7 +72,8 @@ header div ul {
     left: 0;
     height: 2px;
     width: 0;
-    background-color: var(--underline-color, #fcefe3);  /* Use dynamic color */
+    background-color: var(--underline-color, #fcefe3);
+    /* Use dynamic color */
     transition: width 0.5s ease-out;
 }
 
@@ -143,61 +144,25 @@ header div ul {
 #section_1 {
     position: relative;
     width: 100%;
-    overflow: hidden;
-    background-color: #222;
-    display: flex;
-    justify-content: center;
-    padding: 15vh 0vh;
-}
-
-#section_1_div {
-    width: 80%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-#section_1_div h1 {
-    font-size: 10vh;
-    color: #fcefe3;
-    margin: 0vh 0vh 8vh 0vh;
-}
-
-#section_1_div h2 {
-    font-size: 4vh;
-    margin: 0vh 0vh 3vh 0vh;
-    color: #fcefe3;
-    width: 50vw;
-}
-
-#section_1_div p {
-    font-size: 2vh;
-    color: #fcefe3;
-    width: 50vw;
-    margin: 0vh 0vh 2vh 0vh;
-}
-
-/* Section 2 */
-
-#section_2 {
     min-height: 100vh;
+    padding: 20vh 0vh 40vh 0vh;
+    overflow: hidden;
     background-color: #fcefe3;
-    padding: 15vh 0vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 10vh;
 }
 
-#section_2_title {
-    font-size: 6vh;
+#section_1_title {
     color: #222;
     text-align: center;
-    text-transform: uppercase;
-    border: solid #222;
-    padding: 0vh 2vh;
-    background-color: #fcefe3;
-    box-shadow: 1vh 0.5vh 0.5vh #333;
+    font-size: 12vh;
+}
+
+#section_1_title_desc {
+    color: #222;
+    font-style: italic;
 }
 
 #veille_ressources_div {
@@ -240,20 +205,32 @@ header div ul {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     transition: top 0.5s ease;
 }
 
 .veille_ressources_box h3 {
-    font-size: 4vh;
-    width: 80%;
+    font-size: 3.5vh;
+    width: 60%;
     text-align: center;
-    margin: 7.5vh 0vh 4vh 0vh;
+    margin: 0vh 0vh 2vh 0vh;
 }
 
 .veille_ressources_box p {
-    font-size: 3vh;
-    width: 80%;
+    font-size: 2.5vh;
+    width: 75%;
     text-align: left;
+    margin: 0vh 0vh 2vh 0vh;
+}
+
+.veille_ressources_box ul {
+    width: 65%;
+}
+
+.veille_ressources_box ul li {
+    font-size: 2.5vh;
+    text-align: left;
+    list-style: disc;
 }
 
 /* Hover Properties */
@@ -269,22 +246,19 @@ header div ul {
 
 /* Background images */
 #bg_1 {
-    background-image: url('../img/veille_bg_1.png');
+    background-image: url('../img/projet_bg_1.png');
 }
+
 #bg_2 {
-    background-image: url('../img/veille_bg_2.png');
+    background-image: url('../img/projet_bg_2.png');
 }
+
 #bg_3 {
-    background-image: url('../img/veille_bg_3.png');
+    background-image: url('../img/projet_bg_3.png');
 }
+
 #bg_4 {
-    background-image: url('../img/veille_bg_4.png');
-}
-#bg_5 {
-    background-image: url('../img/veille_bg_5.png');
-}
-#bg_6 {
-    background-image: url('../img/veille_bg_6.png');
+    background-image: url('../img/projet_bg_4.png');
 }
 
 /* Tap img */
@@ -292,45 +266,6 @@ header div ul {
 .veille_ressources_tap {
     margin: 2.5vh 0vh 0vh 0vh;
     height: 10vh;
-}
-
-/* Section 3*/
-
-#section_3 {
-    background-color: #222;
-    padding: 15vh 0vh 20vh 0vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10vh;
-}
-
-#section_3_title {
-    font-size: 6vh;
-    color: #fcefe3;
-    text-align: center;
-    text-transform: uppercase;
-    border: solid #fcefe3;
-    padding: 0vh 2vh;
-    background-color: #222;
-    box-shadow: 1vh 0.5vh 0.5vh #f3e0cc;
-    width: 50vw;
-}
-
-#section_3_div {
-    width: 65%;
-}
-
-#section_3_div h3 {
-    color: #f3e0cc;
-    font-size: 4.5vh;
-    margin: 0vh 0vh 3vh 0vh;
-}
-
-#section_3_div p {
-    color: #f3e0cc;
-    font-size: 3vh;
-    margin: 0vh 0vh 4vh 2vh;
 }
 
 /* Footer */
@@ -389,7 +324,7 @@ header div ul {
     row-gap: 3vh;
 }
 
-.coordonnees_div_items{
+.coordonnees_div_items {
     display: flex;
     align-items: center;
     gap: 1vw;
@@ -427,7 +362,7 @@ header div ul {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     transition: all 0.3s;
 }
-  
+
 #scrollTopBtn:hover {
     background-color: #333;
     border-color: #2f2f2f;
