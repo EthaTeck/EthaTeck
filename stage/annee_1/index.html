@@ -59,7 +59,6 @@
                     <li class="bloc_list_item">Bruteforce sur server FTP</li>
                     <li class="bloc_list_item">Rubberducky, intrusion physique sur machine (Keylogger)</li>
                     <li class="bloc_list_item">Recherche en source ouvertes sur une cible précise (OSINT)</li>
-                    <li class="bloc_list_item">Téléphone contaminé, Virus accès au téléphone (Non réussi)</li>
                     <li class="bloc_list_item">IMSI Scanner, Scan des fréquences GSM</li>
                 </ul>
                 <h4 class="bloc_div_txt">
@@ -72,14 +71,14 @@
                 <h4 class="bloc_div_txt">
                     <u>Contexte :</u><br><br>
                     Dans le scénario du déni de service (DOS), on imagine qu’il y a plusieurs personnes qui communiquent
-                    via un chat instantané XMPP (similaire à WhatsApp). Elles utilisent un client Spark qui se connecte
+                    via un chat instantané XMPP (similaire à WhatsApp). Pour cela elles utilisent un client Spark qui se connecte
                     à un serveur Openfire.
                 </h4>
 
                 <h4 class="bloc_div_txt">
-                    Alors qu’ils échangent sur un sujet important, la communication devient lente, puis s’interrompt
+                    Imaginons donc ce scénario. Alors qu’ils échangent sur un sujet important, la communication devient lente, puis s’interrompt
                     totalement. Aucun appareil ne semble en panne, et la connexion fonctionne. Le problème vient du
-                    serveur, qui est submergé de requêtes : il ne peut plus remplir son rôle. Le serveur est victime
+                    serveur, qui est submergé de requêtes : il ne peut plus remplir son rôle. Le serveur est bloqué. Le serveur est donc victime
                     d’un déni de service (DOS).
                 </h4>
 
@@ -100,17 +99,22 @@
                 </ul>
 
                 <h4 class="bloc_div_txt">
-                    Une fois le serveur lancé et les clients connectés, on vérifie que tout fonctionne normalement.
+                    Une fois le serveur Openfire lancé et les deux clients Spark connectés, on analyse les paquets et on vérifie que tout fonctionne normalement.
                     Wireshark montre alors peu de trafic.
                 </h4>
 
                 <h4 class="bloc_div_txt">
-                    Côté attaquant, on installe <code>hping3</code> et on exécute la commande suivante :
+                    Côté attaquant, on installe l'outil <code>hping3</code> et on exécute la commande suivante, 
+                    qui va permettre d’envoyer des milliers de requêtes au serveur, se qui va le submergé, et finira par ne plus répondre :
                 </h4>
+
+                <br>
 
                 <h4 class="bloc_div_txt">
                     <code>sudo hping3 -c 15000 -S -d 120 -p 5222 --flood --rand-source 192.168.22.111</code>
                 </h4>
+
+                <br>
 
                 <h4 class="bloc_div_txt">
                     Cette commande envoie 15 000 requêtes SYN de 120 bits au port 5222 (utilisé par Openfire), depuis
@@ -128,12 +132,14 @@
 
                 <h4 class="bloc_div_txt">
                     <u>Solutions :</u><br>
-                    Dans ce cas, l’utilisateur ne peut rien faire.
+                    Dans ce cas, nous pouvons donc constater que le service de chat ne répond plus entre les deuc clients.
                 </h4>
+                <img src="../../img/annee_1/annee_1_image (3).png" alt="">
 
                 <h4 class="bloc_div_txt">
-                    Seul l’administrateur du serveur peut stopper l’attaque à temps. Il est recommandé d’avoir un autre
-                    moyen de communication en cas d’urgence.
+                    <u>Solution :</u><br><br>
+                    l'utilisateur ne peut rien faire, seul l'administrateur du serveur peut court-circuiter l'attaque s'il réagit à temps. 
+                    La seule mesure que peut prendre l'utilisateur serait de toujours avoir un autre moyen de communication en cas d'urgence.
                 </h4>
 
                 <h4 class="bloc_div_title">Bruteforce sur serveur FTP</h4>
@@ -146,12 +152,12 @@
 
                 <h4 class="bloc_div_txt">
                     Imaginons ce scénario : le chef d’entreprise envoie un fichier sensible à un de ses employés via un
-                    serveur FileZilla. Ce fichier peut être une recette secrète, par exemple — donc aucun concurrent ne
+                    serveur FileZilla. Ce fichier peut être une recette secrète par exemple — donc aucun concurrent ne
                     doit y avoir accès !
                 </h4>
 
                 <h4 class="bloc_div_txt">
-                    Mais peu de temps plus tard, le chef d’entreprise constate une baisse de clientèle. Tout simplement
+                    Mais peu de temps plus tard, le chef d’entreprise constate une baisse de la clientèle. Tout simplement
                     parce que les clients se sont tournés vers un concurrent direct. Pourquoi ? Parce que ce concurrent
                     s’est introduit sur le serveur FileZilla en utilisant une attaque par « force brute » pour accéder à
                     tous les fichiers partagés et les dérober via le compte d’un utilisateur.
@@ -179,18 +185,26 @@
                     jusqu’à trouver le bon mot de passe :
                 </h4>
 
+                <br>
+
                 <h4 class="bloc_div_txt">
                     <code>hydra -s 21 -v -l gentil -P /usr/share/wordlists/rockyou.txt -t 16 192.168.22.111 ftp</code>
                 </h4>
+
+                <br>
 
                 <h4 class="bloc_div_txt">
                     Cette commande essaye 16 mots de passe par minute, provenant de la liste "rockyou.txt", pour
                     l’utilisateur "gentil", qui a un compte sur le serveur FTP (port 21).
                 </h4>
 
+                <img src="../../img/annee_1/annee_1_image (4).png" alt="">
+
                 <h4 class="bloc_div_txt">
                     On peut observer toutes les tentatives de connexion générées par l’attaque.
                 </h4>
+
+                <img src="../../img/annee_1/annee_1_image (5).png" alt="">
 
                 <h4 class="bloc_div_txt">
                     L'attaque tourne pendant quelques secondes ou minutes avant de finalement trouver le mot de passe du
@@ -198,13 +212,16 @@
                 </h4>
 
                 <h4 class="bloc_div_txt">
-                    Ensuite, l’attaquant peut se connecter au serveur sFTP et dérober toutes les données partagées.
+                    Ensuite, une fois avoir trouver le mot de passe de l’utilisateur, 
+                    l’attaquant peut se connecter au serveur sFTP et dérober toutes les données partagées.
                 </h4>
+
+                <img src="../../img/annee_1/annee_1_image (6).png" alt="">
 
                 <h4 class="bloc_div_txt">
                     <u>Solution :</u><br><br>
                     Une mesure simple : ne pas utiliser de mot de passe faible.<br>
-                    Il est aussi conseillé de vérifier si votre mot de passe fait partie de fuites de données publiques
+                    Il est aussi conseillé de vérifier si votre mot de passe fait partie des dumps de mot de passe ou fuites de données publiques
                     via des services comme : <a href="https://haveibeenpwned.com/">https://haveibeenpwned.com/</a><br>
                     Une autre mesure utile consiste à chiffrer les fichiers postés sur le serveur, en particulier s’ils
                     sont sensibles.
@@ -215,19 +232,19 @@
 
                 <h4 class="bloc_div_txt">
                     <u>Contexte :</u><br><br>
-                    Dans un bureau, une femme de ménage vient chaque semaine. Cela fait trois mois que vous discutez
+                    Dans un bureau, une femme de ménage vient chaque semaine. Cette dame est assez âgé et très aimable, cela fait trois mois que vous discutez
                     avec elle lors de ses passages dans votre bureau.
                 </h4>
 
                 <h4 class="bloc_div_txt">
                     Un jour, alors que vous discutez avec elle, vous êtes appelé hors de votre bureau. Vu son âge et son
                     amabilité, vous n'osez pas la faire sortir, et de toute façon, vous ne partez que pour une ou deux
-                    minutes au maximum. Cependant, cela s'avère être une grave erreur.
+                    minutes au maximum. Cependant, vous êtes naif, cela s'avère être une grave erreur.
                 </h4>
 
                 <h4 class="bloc_div_txt">
-                    En seulement 10 secondes, elle branche discrètement une clé USB à l'arrière de votre PC, puis l'en
-                    retire rapidement. Cette clé est un keylogger, un dispositif qui enregistre toutes les touches que
+                    Il ne suffit seulement que de 10 secondes, elle branche discrètement une clé USB à l'arrière de votre PC, puis l'en
+                    retire rapidement. Cette clé est un keylogger, littéralement "enregistreur de saisies", un dispositif qui enregistre toutes les touches que
                     vous tapez, y compris vos mots de passe.
                 </h4>
 
@@ -250,31 +267,66 @@
 
                 <h4 class="bloc_div_txt">
                     Une fois la Rubberducky branchée sur la machine cible (elle est déjà programmée pour agir comme un
-                    clavier), il suffit de 10 secondes pour qu'elle lance un programme PowerShell, qui insère un fichier
+                    simulteur clavier).
+                </h4>
+
+                <img src="../../img/annee_1/annee_1_image (7).png" alt=""> <img src="../../img/annee_1/annee_1_image (8).png" alt="">
+                
+                <h4 class="bloc_div_txt">
+                    il suffit de 10 secondes pour qu'elle lance un programme PowerShell, qui insère un fichier
                     en arrière-plan pour enregistrer toutes les frappes effectuées sur le clavier.
                 </h4>
+
+                <img src="../../img/annee_1/annee_1_image (9).png" alt="">
 
                 <h4 class="bloc_div_txt">
                     Après une semaine, un mois, ou même plusieurs mois, l'attaquant peut revenir et rebrancher la
                     Rubberducky. En moins de 10 secondes, il exécutera un programme qui enverra le fichier contenant
-                    toutes vos frappes clavier à une adresse mail, avant de retirer la clé et de partir.
+                    toutes vos saisies clavier à une adresse mail, avant de retirer la clé et de partir. Et le tour est jouer !
                 </h4>
 
                 <h4 class="bloc_div_txt">
-                    Pour trouver ce fichier, il suffit de faire Windows + R, puis de naviguer dans le dossier Local,
-                    puis Temp, et le fichier s'appelle "Key".
+                    L’attaquant a sur sont adresse mail le fichier avec toutes vos saisie. 
+                    Le fichier peux donc avoir enregistrer vos coordonnées, vos mot de passe, vos codes bancaire, vos recherches internet etc, 
+                    absolument tout se que vous avais saisie sur votre clavier.
                 </h4>
 
                 <h4 class="bloc_div_txt">
-                    Ce fichier peut contenir des informations sensibles comme vos mots de passe, codes bancaires,
+                    Pour trouver ce fichier, il suffit de faire Windows + R.
+                </h4>
+
+                <img src="../../img/annee_1/annee_1_image (10).png" alt="">
+
+                <h4 class="bloc_div_txt">
+                    Puis de naviguer dans le dossier Local.
+                </h4>
+
+                <img src="../../img/annee_1/annee_1_image (11).png" alt="">
+
+                <h4 class="bloc_div_txt">
+                    Puis dans le dossier Temp
+                </h4>
+
+                <img src="../../img/annee_1/2025_1_image_12.png" alt="">
+
+                <h4 class="bloc_div_txt">
+                    Et le fichier en question s'appelle "Key".
+                </h4>
+
+                <img src="../../img/annee_1/annee_1_image (13).png" alt="">
+
+                <h4 class="bloc_div_txt">
+                    Ce fichier peut donc contenir des informations sensibles comme vos mots de passe, codes bancaires,
                     historiques de recherche, etc.
                 </h4>
+
+                <br>
 
                 <h4 class="bloc_div_txt">
                     <u>Solution :</u><br><br>
                     Ne jamais laisser une personne seule à proximité d’un poste de travail, qu’elle soit ou non
                     étrangère à l’entreprise. Vérifiez régulièrement les ports USB, y compris ceux à l’arrière des
-                    machines. Toujours verrouiller sa session, même en cas d’absence de quelques secondes.
+                    machines. Toujours verrouiller sa session, même en cas d’absence de quelques secondes avec Windows + L.
                 </h4>
 
                 <h4 class="bloc_div_title">Osint, Attaque informatique ciblée (mail piégé)</h4>
@@ -283,7 +335,7 @@
                     <u>Contexte :</u><br><br>
                     Après une première phase d'OSINT (passif), l'attaquant a recueilli de nombreuses informations sur sa
                     cible. Il sait notamment que cette dernière cherche une baby-sitter, ayant publié une annonce sur
-                    Facebook. Un contact lui conseille le site www.nounou-top.fr.
+                    Facebook. Sur laquelle un contact lui conseille le site www.nounou-top.fr.
                 </h4>
 
                 <h4 class="bloc_div_txt">
@@ -310,10 +362,17 @@
                     <li class="bloc_list_item">Un client mail côté cible (TempMail)</li>
                 </ul>
 
+                <img src="../../img/annee_1/annee_1_image (14).png" alt="">
+
                 <h4 class="bloc_div_txt">
                     L'attaquant envoie donc un mail contenant un lien vers le faux site. Lorsque la cible tente de se
-                    connecter, elle entre ses identifiants (email, mot de passe), qui sont ensuite récupérés par
-                    l'attaquant.
+                    connecter, elle entre ses identifiants (email, mot de passe).
+                </h4>
+
+                <img src="../../img/annee_1/annee_1_image (15).png" alt="">
+
+                <h4 class="bloc_div_txt">
+                    Qui sont ensuite récupérés par l'attaquant.
                 </h4>
 
                 <h4 class="bloc_div_txt">
@@ -348,6 +407,8 @@
                     - L'attaquant peut alors identifier le pays et l'opérateur mobile de l'appareil<br><br>
                     - Ouverture sur toutes les attaques possibles avec des moyens faibles/forts
                 </h4>
+
+                <img src="../../img/annee_1/annee_1_image (16).png" alt="">
 
                 <h4 class="bloc_div_txt">
                     <u>Solution :</u><br><br>
