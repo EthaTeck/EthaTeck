@@ -143,58 +143,17 @@ header div ul {
 #section_1 {
     position: relative;
     width: 100%;
-    min-height: 100vh;
+    min-height: 60vh;
     overflow: hidden;
+    padding: 20vh 0vh 20vh 0vh;
     background-color: #fcefe3;
-    padding: 15vh 0vh;
     display: flex;
-    flex-direction: column;
     align-items: center;
-    gap: 5vh;
+    justify-content: center;
 }
 
-#section_1_title {
-    color: #222;
-    font-size: 9vh;
-}
-
-.bloc_div {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    row-gap: 1vh;
-}
-
-.bloc_div_title {
-    color: #222;
-    font-size: 6vh;
-    width: 55%;
-    text-decoration: underline;
-    margin: 0vh 0vh 2.5vh 0vh;
-}
-
-.bloc_list_title {
-    color: #222;
-    font-size: 3.75vh;
-    width: 55%;
-}
-
-.bloc_list_title_desc {
-    margin: -1vh 0vh 1vh 0vh;
-    font-style: italic;
-    width: 54.75%;
-}
-
-.bloc_list {
-    color: #222;
-    width: 50%;
-    margin: 0vh 0vh 5vh 0vh;
-}
-
-.bloc_list_item {
-    font-size: 2.75vh;
-    list-style: disc;
+#cv_img {
+    height: 95vh;
 }
 
 /* Footer */
