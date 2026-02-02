@@ -7,8 +7,9 @@ Une page d'accueil avec une brève introduction.
 Une section sur mes compétences techniques.
 Une galerie de projets avec descriptions, captures d'écran et liens.
 Un formulaire de contact ou des liens vers mes réseaux sociaux (LinkedIn, GitHub, etc.).
+Une page veille
+Une page CV
 
-[Insérez ici une capture d'écran du site si disponible : Capture d'écran du portfolio]
 Technologies Utilisées
 
 Frontend : HTML5, CSS3, JavaScript (ou frameworks comme React, Vue.js si applicable).
@@ -32,17 +33,9 @@ Poussez vos changements sur la branche main ou gh-pages.
 Allez dans les paramètres du dépôt > Pages > Sélectionnez la branche source.
 Votre site sera accessible à https://votre-username.github.io/votre-repo/.
 
-Projets Mis en Avant
-
-Projet 1 : Description brève. Lien vers le projet.
-Projet 2 : Description brève. Lien vers le projet.
-Ajoutez-en d'autres selon vos besoins.
-
 Contact
 
 Email : [ethanmouillet@gmail.com]
-LinkedIn : [lien vers votre profil]
-GitHub : [lien vers votre profil]
 
 N'hésitez pas à me contacter pour des collaborations ou des retours !
 Licence
