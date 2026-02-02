@@ -1,33 +1,49 @@
-# Portfolio Cybersécurité
+Mon Portfolio Personnel
+Bienvenue sur mon portfolio en ligne ! Ce site web présente mes projets, compétences et expériences en tant que [votre rôle, ex: développeur web, designer, etc.]. Il est hébergé sur GitHub Pages ou tout autre plateforme de déploiement.
+Aperçu
+Ce portfolio inclut :
 
-Un portfolio interactif présentant plusieurs démonstrations et scénarios d'attaques cyber en environnement contrôlé.
+Une page d'accueil avec une brève introduction.
+Une section sur mes compétences techniques.
+Une galerie de projets avec descriptions, captures d'écran et liens.
+Un formulaire de contact ou des liens vers mes réseaux sociaux (LinkedIn, GitHub, etc.).
 
-## 🎯 Objectif du projet
+[Insérez ici une capture d'écran du site si disponible : Capture d'écran du portfolio]
+Technologies Utilisées
 
-Ce site présente différents cas pratiques de cybersécurité :
-- Attaques réelles (DoS, brute-force, keylogger physique, phishing ciblé, IMSI-Catcher)
-- Infrastructure réseau sécurisée avec DMZ, monitoring et services d'entreprise
-- Explications détaillées, captures d'écran et solutions de remédiation
+Frontend : HTML5, CSS3, JavaScript (ou frameworks comme React, Vue.js si applicable).
+Outils : Git pour le versionning, [autres outils comme Bootstrap, Tailwind CSS, etc.].
+Déploiement : GitHub Pages, Vercel, Netlify, etc.
 
-## 📋 Projets présentés
+Installation et Exécution Locale
+Pour cloner et exécuter ce projet localement :
 
-- **Déni de Service (DoS) sur Openfire** avec hping3
-- **Bruteforce FTP** avec Hydra
-- **Rubber Ducky – Keylogger Physique**
-- **OSINT + Phishing ciblé** (site Nounou-Top)
-- **Scan GSM / IMSI-Catcher**
-- **Infrastructure Réseau Sécurisée** (Windows Server, Active Directory, VoIP Asterisk, DNS Bind9, pfSense, Zabbix, etc.)
+Clonez le dépôt :textgit clone https://github.com/votre-username/votre-repo.git
+Naviguez dans le dossier :textcd votre-repo
+Ouvrez le fichier index.html dans votre navigateur préféré, ou utilisez un serveur local si nécessaire (ex: avec Live Server sur VS Code).
 
-## 🛠 Technologies utilisées
+Si des dépendances sont requises (ex: via npm) :
+textnpm install
+npm start
+Déploiement
+Pour déployer sur GitHub Pages :
 
-- **HTML5** + **CSS3**
-- **Tailwind CSS** (classes utilisées : bg-[#1a1a1a], backdrop-blur, border-cyan-500, etc.)
-- **JavaScript** (zoom sur images via checkbox hack)
-- **VS Code** comme éditeur
-- **GitHub Pages** pour l'hébergement
+Poussez vos changements sur la branche main ou gh-pages.
+Allez dans les paramètres du dépôt > Pages > Sélectionnez la branche source.
+Votre site sera accessible à https://votre-username.github.io/votre-repo/.
 
-## 🚀 Comment exécuter le site localement
+Projets Mis en Avant
 
-1. Cloner le repository :
-   ```bash
-   git clone https://github.com/votre-username/votre-repo.git
+Projet 1 : Description brève. Lien vers le projet.
+Projet 2 : Description brève. Lien vers le projet.
+Ajoutez-en d'autres selon vos besoins.
+
+Contact
+
+Email : [ethanmouillet@gmail.com]
+LinkedIn : [lien vers votre profil]
+GitHub : [lien vers votre profil]
+
+N'hésitez pas à me contacter pour des collaborations ou des retours !
+Licence
+Ce projet est sous licence MIT. Voir le fichier LICENSE pour plus de détails.
