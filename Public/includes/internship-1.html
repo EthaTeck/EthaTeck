@@ -1,0 +1,372 @@
+<!-- Public/includes/stage-annee1.html – VERSION FINALE 100% TAILWIND + FULLSCREEN AU TAP/CLIC SANS JS (15/11/2025) -->
+<div class="min-h-screen bg-[#222222] text-[#fcefe3] py-16 md:py-24 px-5 md:px-8 overflow-x-hidden">
+
+  <!-- HERO -->
+  <div class="text-center py-16 md:py-24 relative overflow-hidden">
+    <div class="absolute inset-0 -z-10 opacity-40">
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] md:w-[1200px] md:h-[1200px] bg-gradient-radial from-cyan-500/30 via-purple-600/20 to-transparent rounded-full blur-3xl"></div>
+    </div>
+    <h1 class="text-5xl md:text-8xl lg:text-9xl font-black tracking-tighter leading-none bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+      STAGE 1ÈRE ANNÉE
+    </h1>
+    <p class="text-2xl md:text-4xl mt-4 md:mt-8 text-cyan-300 font-bold">1er RPIMa – Bayonne</p>
+    <p class="text-lg md:text-2xl mt-4 max-w-4xl mx-auto opacity-90 leading-relaxed">
+      Plateforme de sensibilisation cybersécurité militaire
+    </p>
+  </div>
+
+  <!-- INTRO CARD -->
+  <div class="max-w-5xl mx-auto my-16 md:my-24">
+    <div class="bg-[#1a1a1a]/95 backdrop-blur-2xl border border-cyan-500/40 rounded-3xl p-8 md:p-12 text-center hover:border-cyan-300 transition-all duration-700 shadow-2xl">
+      <h2 class="text-3xl md:text-5xl font-black text-cyan-400 mb-6">Mission : Sensibiliser les Paras à la Cybermenace</h2>
+      <p class="text-base md:text-xl leading-relaxed">
+        Création et présentation d’une plateforme démontrant <strong class="text-pink-400">5 attaques réelles réalisables avec des outils grand public</strong>, 
+        validée par les officiers cybersécurité du régiment.
+      </p>
+    </div>
+  </div>
+
+  <!-- ATTACKS -->
+  <div class="space-y-20 md:space-y-32 max-w-6xl mx-auto">
+
+<!-- 1. DOS Openfire -->
+<div class="bg-[#1a1a1a]/95 backdrop-blur-xl border border-cyan-500/30 rounded-3xl p-8 md:p-12 hover:border-cyan-400 transition-all duration-700">
+  <h3 class="text-3xl md:text-4xl font-bold text-cyan-300 mb-6">Déni de Service sur Openfire</h3>
+  <p class="text-base md:text-lg leading-relaxed mb-8">
+    Dans le scénario du déni de service (DOS) on va y imaginer qu’il y a plusieurs personnes, qui vont communiquer entre elles à l’aide d’un chat instantané XMPP (similaire a WhatsApp). Pour cela elles utilisent un client Spark qui se connecte au serveur Openfire.
+    <br><br> Imaginons donc ce scénario, Alors qu'ils échangent sur un sujet important, la communication est soudainement plus lente puis est totalement interrompu. La panne ne vient pas d'un des appareils, et ce n'est pas non plus un soucis de connexion. 
+    Le problème viens du serveur, en effet ce dernier est totalement inondé de requêtes et n'est plus en mesure de remplir son rôle, plus aucun moyen pour pouvoir communiquer, le serveur est bloqué, il est victime d'un déni de service (DOS)
+    L'attaque a été réalisé par un attaquant seul, sans grandes compétences et sans matériel spécifique.
+    <br><br> Pour réaliser se scénario il va nous falloir : <br> - Un serveur Openfire <br> - Deux clients Spark <br> - Un attaquant avec l’outil hping3
+    <br><br> Une fois le serveur Openfire mis en route et les deux clients Spark connecter au serveur, il va falloir vérifier le bon fonctionnement, et l’analyse des paquets sur Wireshark qui sont normalement peu nombreux, nous pouvons maintenant nous occuper de l’attaquant,
+    Pour cela on va installer l’outil hping3 et faire la commande suivante, qui va permettre d’envoyer des milliers de requêtes au serveur, se qui va l’inonder, et ne va donc plus répondre.
+  </p>
+  <pre class="bg-black p-6 rounded-xl border border-cyan-400 font-mono text-xs md:text-sm text-green-400 overflow-x-auto mb-8 whitespace-pre-wrap">sudo hping3 -c 15000 -S -d 120 -p 5222 --flood --rand-source 192.168.22.111</pre>
+  <p class="text-base md:text-lg leading-relaxed mb-8">
+    On envoie sur le port 5222 (openfire) du serveur 15000 requêtes SYN de 120 bit, le plus rapidement possible depuis des adresses IP aléatoires.
+  </p>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <div class="flex flex-col">
+      <label class="cursor-zoom-in block">
+        <input type="checkbox" class="peer hidden">
+        <img src="./assets/annee_1/annee_1_image (1).png" loading="lazy" class="rounded-xl shadow-md shadow-cyan-500/20 w-full peer-checked:hidden" alt="DOS Openfire">
+        <div class="fixed inset-0 bg-black/95 z-[99999] hidden peer-checked:flex items-center justify-center p-8">
+          <img src="./assets/annee_1/annee_1_image (1).png" class="max-w-full max-h-full object-contain rounded-xl">
+        </div>
+      </label>
+      <p class="text-base mt-4">ici, on voit la commande en route sur l'outil hping3 qui va permettre de lancer l'attaque.</p>
+    </div>
+
+    <div class="flex flex-col">
+      <label class="cursor-zoom-in block">
+        <input type="checkbox" class="peer hidden">
+        <img src="./assets/annee_1/annee_1_image (2).png" loading="lazy" class="rounded-xl shadow-md shadow-cyan-500/20 w-full peer-checked:hidden" alt="Wireshark flood">
+        <div class="fixed inset-0 bg-black/95 z-[99999] hidden peer-checked:flex items-center justify-center p-8">
+          <img src="./assets/annee_1/annee_1_image (2).png" class="max-w-full max-h-full object-contain rounded-xl">
+        </div>
+      </label>
+      <p class="text-base mt-4">Ensuite, on refait une analyse des paquets sur Wireshark, qui sont cette fois très nombreux. <br> (Capture Wireshark montrant le flood de paquets pendant l'attaque DOS)</p>
+    </div>
+
+    <div class="flex flex-col">
+      <label class="cursor-zoom-in block">
+        <input type="checkbox" class="peer hidden">
+        <img src="./assets/annee_1/annee_1_image (3).png" loading="lazy" class="rounded-xl shadow-md shadow-cyan-500/20 w-full peer-checked:hidden" alt="Chat bloqué">
+        <div class="fixed inset-0 bg-black/95 z-[99999] hidden peer-checked:flex items-center justify-center p-8">
+          <img src="./assets/annee_1/annee_1_image (3).png" class="max-w-full max-h-full object-contain rounded-xl">
+        </div>
+      </label>
+      <p class="text-base mt-4">On peux ensuite constater l'interface du chat Spark bloquée suite au déni de service.</p>
+    </div>
+  </div>
+  <div class="mt-8">
+    <h4 class="text-2xl font-bold text-cyan-300 mb-4">Solution</h4>
+    <p class="text-base md:text-lg leading-relaxed">
+      Pour éviter les attaques DOS/DDOS sur un serveur comme Openfire, plusieurs mesures peuvent être mises en place :
+      <br>- Utiliser un pare-feu (firewall) pour limiter le taux de requêtes entrantes (rate limiting).
+      <br>- Configurer des outils de détection d'intrusion comme Fail2Ban pour bloquer les IP suspectes.
+      <br>- Employer des services de protection comme Cloudflare ou AWS Shield pour absorber les attaques distribuées.
+      <br>- Mettre à jour régulièrement le logiciel Openfire et surveiller les logs pour détecter les anomalies.
+      <br>- Implémenter l'authentification forte et restreindre les accès aux ports nécessaires (ex: 5222 pour XMPP).
+    </p>
+  </div>
+</div>
+
+    <!-- 2. Bruteforce FTP -->
+<div class="bg-[#1a1a1a]/95 backdrop-blur-xl border border-purple-500/30 rounded-3xl p-8 md:p-12 hover:border-purple-400 transition-all duration-700">
+  <h3 class="text-3xl md:text-4xl font-bold text-purple-300 mb-6">Bruteforce FTP avec Hydra</h3>
+  <p class="leading-relaxed mb-8 text-lg md:text-xl">
+    Dans le scénario du bruteforce sur serveur FTP, un chef d’entreprise transmet des fichiers à ses employées, en utilisant un serveur FTP.
+    <br><br> Imaginons donc ce scénario, Le chef d’entreprise envoie un fichier sensible à un de ses employé via un serveur Filezilla,
+    ce fichier pouvant être une recette secrète par exemple, donc aucun concurrent ne dois y avoir accès !
+    Mais peux de temps plus tard, le chef de l’entreprise aperçoit une baisse de client. Tout simplement car les clients sont aller voir un concurrent direct,
+    car l’entreprise concurrente c’est introduit sur le serveur Filezilla en utilisent une attaque de «force brute» pour accéder a tout les fichiers partagers, et les dérober via le compte d’un utilisateur.
+    <br><br> Pour réaliser se scénario il va nous falloir : <br> - Un serveur FTP/sFTP <br> - Un client avec un compte sur le serveur FTP/sFTP <br> - Un attaquant avec l’outil Hydra
+    <br><br> Une fois le serveur FTP/sFTP mis en route et le client connecter au serveur, il va falloir vérifier le bon fonctionnement du serveur et du dépôt de fichier, nous pouvons maintenant nous occuper de l’attaquant,
+    Pour cela on va installer l’outil hydra et faire la commande suivante, qui va permettre de faire plusieurs tentative de connexion d’affilé, par rapport a une liste de mot de passe courant trouver sur internet, jusqu’à trouver le bon mot de passe.
+  </p>
+  <pre class="bg-black p-6 rounded-xl border border-purple-400 font-mono text-xs md:text-sm text-green-400 overflow-x-auto mb-8 whitespace-pre-wrap">hydra -l gentil -P /usr/share/wordlists/rockyou.txt 192.168.22.111 ftp</pre>
+  <p class="text-base md:text-lg leading-relaxed mb-8">
+    On essaie 16x/min des mots de passe provenant d'une liste pour l'utilisateur "gentil", qui a un compte sur le serveur ftp (service qui tourne sur le port 21) 
+    <br>Mot de passe faible = accès total aux documents classifiés.
+  </p>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <div class="flex flex-col">
+      <label class="cursor-zoom-in block">
+        <input type="checkbox" class="peer hidden">
+        <img src="./assets/annee_1/annee_1_image (4).png" loading="lazy" class="rounded-xl shadow-md shadow-purple-500/20 w-full peer-checked:hidden" alt="Hydra">
+        <div class="fixed inset-0 bg-black/95 z-[99999] hidden peer-checked:flex items-center justify-center p-8">
+          <img src="./assets/annee_1/annee_1_image (4).png" class="max-w-full max-h-full object-contain rounded-xl">
+        </div>
+      </label>
+      <p class="text-base mt-4">On peux voir toutes les tentatives de connexion causé par l'exécution de l'outil Hydra pour l'attaque de force brute sur le serveur FTP.</p>
+    </div>
+
+    <div class="flex flex-col">
+      <label class="cursor-zoom-in block">
+        <input type="checkbox" class="peer hidden">
+        <img src="./assets/annee_1/annee_1_image (5).png" loading="lazy" class="rounded-xl shadow-md shadow-purple-500/20 w-full peer-checked:hidden" alt="Tentatives">
+        <div class="fixed inset-0 bg-black/95 z-[99999] hidden peer-checked:flex items-center justify-center p-8">
+          <img src="./assets/annee_1/annee_1_image (5).png" class="max-w-full max-h-full object-contain rounded-xl">
+        </div>
+      </label>
+      <p class="text-base mt-4">L'attaque tourne pendant quelques seconde ou minutes avant de finalement trouver le mot de passe qui correspond au compte "gentil"..</p>
+    </div>
+
+    <div class="flex flex-col">
+      <label class="cursor-zoom-in block">
+        <input type="checkbox" class="peer hidden">
+        <img src="./assets/annee_1/annee_1_image (6).png" loading="lazy" class="rounded-xl shadow-md shadow-purple-500/20 w-full peer-checked:hidden" alt="Connexion réussie">
+        <div class="fixed inset-0 bg-black/95 z-[99999] hidden peer-checked:flex items-center justify-center p-8">
+          <img src="./assets/annee_1/annee_1_image (6).png" class="max-w-full max-h-full object-contain rounded-xl">
+        </div>
+      </label>
+      <p class="text-base mt-4">Connexion réussie après avoir trouvé le mot de passe correct. L'attaquant peut donc se connecter sur le serveur FTP et y dérober toutes les données partagés.</p>
+    </div>
+  </div>
+  <div class="mt-8">
+    <h4 class="text-2xl font-bold text-purple-300 mb-4">Solution</h4>
+    <p class="text-base md:text-lg leading-relaxed">
+      Pour éviter les attaques de force brute sur un serveur FTP comme Filezilla, plusieurs mesures peuvent être mises en place :
+      <br>- Utiliser des mots de passe forts et complexes, en évitant les listes courantes comme rockyou.txt.
+      <br>- Implémenter une limitation du taux de tentatives de connexion (rate limiting) via un pare-feu ou des outils comme Fail2Ban.
+      <br>- Passer à SFTP (FTP sur SSH) pour une sécurité accrue, et utiliser des clés SSH au lieu de mots de passe.
+      <br>- Activer l'authentification à deux facteurs (2FA) pour les comptes utilisateurs.
+      <br>- Surveiller les logs du serveur pour détecter et bloquer les activités suspectes.
+    </p>
+  </div>
+</div>
+
+<!-- 3. Rubber Ducky Keylogger -->
+<div class="bg-[#1a1a1a]/95 backdrop-blur-xl border border-pink-500/30 rounded-3xl p-8 md:p-12 hover:border-pink-400 transition-all duration-700">
+  <h3 class="text-3xl md:text-4xl font-bold text-pink-300 mb-6">Rubber Ducky – Keylogger Physique</h3>
+  <p class="text-base md:text-lg leading-relaxed mb-8">
+    Dans les bureau, une femme de ménage vient toutes les semaines. Cette dame est assez âgé et très aimable, cela fais trois mois que vous discutez avec elle quand elle passe dans votre bureau.
+    <br><br> Vient un jour où, alors que vous discutiez avec cette dame, vous êtes appelés hors de votre bureau. Vu son vielle âge et son amabilité, vous ne vous voyez pas la faire sortir de votre bureau,
+    et puis vous ne vous absentez que pour une ou deux minutes tout au plus. Malheureusement c'est être trop naïf, Il ne lui suffit que de 10s pour brancher une petite clé USB à l'arrière de votre poste et la retirer.
+    Une fois cela fait elle en informe ceux qui l'ont missionné en échange d'une petite somme d'argent par exemple. Cette clé est un keylogger, littéralement "enregistreur de saisies",
+    qui permettra à l’attaquant de lire tout ce que vous écrivez (mot de passe etc) sur ce pc qui est désormais infecté.
+    <br><br>Pour réaliser se scénario il va nous falloir : <br> - Une machine client sous Windows avec une connexion internet <br> - Une rubberducky avec un payload Keylogger <br> - Une machine attaquant sous Kali linux
+    <br><br>Pour cela, vous branchez la rubberducky, qui est un simulateur de clavier, a prise USB (déjà programmer) sur une machine.
+  </p>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <div class="flex flex-col">
+      <label class="cursor-zoom-in block">
+        <input type="checkbox" class="peer hidden">
+        <img src="./assets/annee_1/annee_1_image (7).png" loading="lazy" class="rounded-xl shadow-md shadow-pink-500/20 w-full peer-checked:hidden" alt="Rubber Ducky">
+        <div class="fixed inset-0 bg-black/95 z-[99999] hidden peer-checked:flex items-center justify-center p-8">
+          <img src="./assets/annee_1/annee_1_image (7).png" class="max-w-full max-h-full object-contain rounded-xl">
+        </div>
+      </label>
+      <p class="text-base mt-4">Présentation de la Rubber Ducky, le dispositif USB utilisé comme keylogger physique.</p>
+    </div>
+
+    <div class="flex flex-col">
+      <label class="cursor-zoom-in block">
+        <input type="checkbox" class="peer hidden">
+        <img src="./assets/annee_1/annee_1_image (8).png" loading="lazy" class="rounded-xl shadow-md shadow-pink-500/20 w-full peer-checked:hidden" alt="Branchement">
+        <div class="fixed inset-0 bg-black/95 z-[99999] hidden peer-checked:flex items-center justify-center p-8">
+          <img src="./assets/annee_1/annee_1_image (8).png" class="max-w-full max-h-full object-contain rounded-xl">
+        </div>
+      </label>
+      <p class="text-base mt-4">Branchement de la Rubber Ducky sur l'ordinateur cible. <br> il va falloir pas plus de 10s pour que la rubberducky ouvre et effectue des programme PowerShell et insérer un fichier qui enregistrera toutes saisie effectuer sur votre clavier.</p>
+    </div>
+
+    <div class="flex flex-col">
+      <label class="cursor-zoom-in block">
+        <input type="checkbox" class="peer hidden">
+        <img src="./assets/annee_1/annee_1_image (9).png" loading="lazy" class="rounded-xl shadow-md shadow-pink-500/20 w-full peer-checked:hidden" alt="Payload">
+        <div class="fixed inset-0 bg-black/95 z-[99999] hidden peer-checked:flex items-center justify-center p-8">
+          <img src="./assets/annee_1/annee_1_image (9).png" class="max-w-full max-h-full object-contain rounded-xl">
+        </div>
+      </label>
+      <p class="text-base mt-4">Programme du payload keylogger.</p>
+    </div>
+  </div>
+  <p class="text-base md:text-lg leading-relaxed my-8">
+    Ensuite, 1 semaine, 1 mois ou 5 mois après, peux importe, la personne reviens brancher la rubberducky et en même pas 10s elle va effectuer un programme qui va envoyer le fichier sur lequel il y a toutes vos saisis clavier depuis le premier branchement à une adresse mail, puis ensuite vous retirer la rubberducky et le tour est jouer ! L’attaquant a sur sont adresse mail le fichier avec toutes vos saisie. Le fichier peux donc avoir enregistrer vos coordonnées, vos mot de passe, vos codes bancaire, vos recherches internet etc, absolument tout se que vous avais saisie sur votre clavier.
+  </p>
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+    <div class="flex flex-col">
+      <label class="cursor-zoom-in block">
+        <input type="checkbox" class="peer hidden">
+        <img src="./assets/annee_1/annee_1_image (10).png" loading="lazy" class="rounded-xl shadow-md shadow-pink-500/20 w-full peer-checked:hidden" alt="Run">
+        <div class="fixed inset-0 bg-black/95 z-[99999] hidden peer-checked:flex items-center justify-center p-8">
+          <img src="./assets/annee_1/annee_1_image (10).png" class="max-w-full max-h-full object-contain rounded-xl">
+        </div>
+      </label>
+      <p class="text-base mt-4">Pour trouver le fichier il va falloir entrer cette commande "appdata" avec Windows + R.</p>
+    </div>
+
+    <div class="flex flex-col">
+      <label class="cursor-zoom-in block">
+        <input type="checkbox" class="peer hidden">
+        <img src="./assets/annee_1/annee_1_image (11).png" loading="lazy" class="rounded-xl shadow-md shadow-pink-500/20 w-full peer-checked:hidden" alt="Local">
+        <div class="fixed inset-0 bg-black/95 z-[99999] hidden peer-checked:flex items-center justify-center p-8">
+          <img src="./assets/annee_1/annee_1_image (11).png" class="max-w-full max-h-full object-contain rounded-xl">
+        </div>
+      </label>
+      <p class="text-base mt-4">Ensuite il va falloir aller dans le dossier "Local".</p>
+    </div>
+
+    <div class="flex flex-col">
+      <label class="cursor-zoom-in block">
+        <input type="checkbox" class="peer hidden">
+        <img src="./assets/annee_1/2025_1_image_12.png" loading="lazy" class="rounded-xl shadow-md shadow-pink-500/20 w-full peer-checked:hidden" alt="Temp">
+        <div class="fixed inset-0 bg-black/95 z-[99999] hidden peer-checked:flex items-center justify-center p-8">
+          <img src="./assets/annee_1/2025_1_image_12.png" class="max-w-full max-h-full object-contain rounded-xl">
+        </div>
+      </label>
+      <p class="text-base mt-4">Puis, dans le dossier "Temp" dossier temporaire contenant les données capturées.</p>
+    </div>
+
+    <div class="flex flex-col">
+      <label class="cursor-zoom-in block">
+        <input type="checkbox" class="peer hidden">
+        <img src="./assets/annee_1/annee_1_image (13).png" loading="lazy" class="rounded-xl shadow-md shadow-pink-500/20 w-full peer-checked:hidden" alt="Fichier Key">
+        <div class="fixed inset-0 bg-black/95 z-[99999] hidden peer-checked:flex items-center justify-center p-8">
+          <img src="./assets/annee_1/annee_1_image (13).png" class="max-w-full max-h-full object-contain rounded-xl">
+        </div>
+      </label>
+      <p class="text-base mt-4">Et, le fameux fichier, sera le fichier nommé Key, fichier contenant les touches enregistrées par le keylogger.</p>
+    </div>
+  </div>
+  <div class="mt-8">
+    <h4 class="text-2xl font-bold text-pink-300 mb-4">Solution</h4>
+    <p class="text-base md:text-lg leading-relaxed">
+      Pour éviter les attaques via des dispositifs comme la Rubber Ducky ou des keyloggers physiques :
+      <br>- Sécuriser l'accès physique aux ordinateurs en verrouillant les bureaux et en ne laissant pas les machines sans surveillance.
+      <br>- Utiliser des ports USB restreints ou désactiver les ports inutiles via le BIOS/UEFI.
+      <br>- Installer un antivirus à jour capable de détecter les scripts malveillants et les keyloggers.
+      <br>- Former les employés à la vigilance contre les attaques d'ingénierie sociale.
+      <br>- Utiliser des outils de monitoring pour détecter les activités suspectes sur les machines.
+    </p>
+  </div>
+</div>
+
+    <!-- 4. OSINT + Phishing -->
+<div class="bg-[#1a1a1a]/95 backdrop-blur-xl border border-red-500/30 rounded-3xl p-8 md:p-12 hover:border-red-400 transition-all duration-700">
+  <h3 class="text-3xl md:text-4xl font-bold text-red-400 mb-6">OSINT + Phishing Ciblé (Nounou-Top)</h3>
+  <p class="text-base md:text-lg leading-relaxed mb-8">
+    Après une première phase d'OSINT (passif), l'attaquant a obtenu de nombreuses informations sur sa cible. Il sait notamment que ce dernier cherche une baby-sitter. 
+    En effet il a posté une annonce sur Facebook et à cette annonce, un contact lui a conseillé le site www.nounou-top.fr.
+    <br><br> Suivant le bon conseil d'un ami, il s'inscrit sur le site et publie une annonce. L'attaquant, après avoir récupéré suffisamment d'informations (l’e-mail notamment), envoie un mail en se faisant passer pour la plateforme nounou-top pour lui annoncer une réponse à son annonce.
+    Ce mail propose de se connecter au site pour voir la réponse, mais redirige vers une copie parfaite du site. La cible entre alors ses identifiants et ces derniers sont directement envoyés à l'attaquant.
+    Dans le cas où la cible utilise un même mot de passe sur plusieurs plateformes, l'attaquant a alors accès à une grande quantité d'informations.
+    <br><br> Pour réaliser se scénario il va nous falloir : <br> - Un serveur wamp (apache + php) avec une copie du site <br> - Un client mail côté attaquant <br> - Un client mail côté cible (TempMail)
+  </p>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div class="flex flex-col">
+      <label class="cursor-zoom-in block">
+        <input type="checkbox" class="peer hidden">
+        <img src="./assets/annee_1/annee_1_image (14).png" loading="lazy" class="rounded-xl shadow-md shadow-red-500/20 w-full peer-checked:hidden" alt="Mail piégé">
+        <div class="fixed inset-0 bg-black/95 z-[99999] hidden peer-checked:flex items-center justify-center p-8">
+          <img src="./assets/annee_1/annee_1_image (14).png" class="max-w-full max-h-full object-contain rounded-xl">
+        </div>
+      </label>
+      <p class="text-base text-red-100 mt-4">Le mail piégé envoyé à la cible, se faisant passer pour nounou-top.fr avec un lien vers le site phishing.</p>
+    </div>
+
+    <div class="flex flex-col">
+      <label class="cursor-zoom-in block">
+        <input type="checkbox" class="peer hidden">
+        <img src="./assets/annee_1/annee_1_image (15).png" loading="lazy" class="rounded-xl shadow-md shadow-red-500/20 w-full peer-checked:hidden" alt="Identifiants capturés">
+        <div class="fixed inset-0 bg-black/95 z-[99999] hidden peer-checked:flex items-center justify-center p-8">
+          <img src="./assets/annee_1/annee_1_image (15).png" class="max-w-full max-h-full object-contain rounded-xl">
+        </div>
+      </label>
+      <p class="text-base text-red-100 mt-4">Identifiants capturés sur le serveur phishing après que la cible ait saisi ses informations.</p>
+    </div>
+  </div>
+  <div class="mt-8">
+    <h4 class="text-2xl font-bold text-red-400 mb-4">Solution</h4>
+    <p class="text-base md:text-lg leading-relaxed">
+      Pour éviter les attaques combinant OSINT et phishing ciblé :
+      <br>- Limiter la diffusion d'informations personnelles sur les réseaux sociaux et sites publics (utiliser des paramètres de confidentialité).
+      <br>- Vérifier toujours l'authenticité des emails : examiner l'expéditeur, les liens (survoler sans cliquer), et contacter directement la source officielle.
+      <br>- Utiliser un gestionnaire de mots de passe pour avoir des identifiants uniques et forts sur chaque plateforme.
+      <br>- Activer l'authentification à deux facteurs (2FA) sur tous les comptes sensibles.
+      <br>- Former à la reconnaissance des phishing via des simulations et sensibilisation.
+      <br>- Vérifier la véracité du site (https ne suffit pas). Aller sur le site en le cherchant sur son moteur de recherche. 
+      <br>- Ne pas utiliser les mêmes mots de passe sur différentes plateformes.
+    </p>
+  </div>
+</div>
+
+    <!-- 5. IMSI Catcher -->
+<div class="bg-[#1a1a1a]/95 backdrop-blur-xl border border-green-500/30 rounded-3xl p-8 md:p-12 hover:border-green-400 transition-all duration-700">
+  <h3 class="text-3xl md:text-4xl font-bold text-green-400 mb-6">Scan GSM / IMSI Catcher</h3>
+  <p class="text-base md:text-lg leading-relaxed mb-8">
+    Un groupe de voyageur partent en voyage, Un des voyageur a son téléphone qui est allumé et dans ce dernier une carte SIM française qu'il n'a pas retiré. Il prend l'avion, sort de l'aéroport, traverse la ville, pour se rendre a leur hôtel/maison.
+    <br><br>Il ne passe pas d'appel et n'utilise pas le téléphone durant son voyage donc rien ne devrait poser problèmes. Seulement, son téléphone rayonne et il rayonne beaucoup. Ce qu'il transmet donne un grand nombre d'informations sur l'appareil et son propriétaire.
+    Avec peu de moyen l'ennemi est alors capable de quantifier le nombre de français dans la ville, l'aéroport ou dans un lieu donné. Il est capable avec un peu d'analyse de localiser le téléphone français, ou de reconnaître un IMSI déjà scanné auparavant.
+    <br><br>Réalisation/Déroulé <br> - Le téléphone cherche à se connecter à une antenne (bts) GSM 2G <br> - L'attaquant intercepte les requêtes et avec ça l'IMSI de l'appareil <br> - Avec cela l'attaquant peut voir le pays et l'opérateur mobile de l'appareil <br> - Ouverture sur toutes les attaques possibles avec des moyens faibles / forts
+  </p>
+  <div class="grid grid-cols-1 gap-6">
+    <div class="flex flex-col max-w-2xl mx-auto">
+      <label class="cursor-zoom-in block">
+        <input type="checkbox" class="peer hidden">
+        <img src="./assets/annee_1/annee_1_image (16).png" loading="lazy" class="rounded-xl shadow-md shadow-green-500/20 w-full peer-checked:hidden" alt="IMSI Catcher">
+        <div class="fixed inset-0 bg-black/95 z-[99999] hidden peer-checked:flex items-center justify-center p-8">
+          <img src="./assets/annee_1/annee_1_image (16).png" class="min-w-[50vh] max-h-[50vh] object-contain rounded-xl">
+        </div>
+      </label>
+    </div>
+  </div>
+  <div class="mt-8">
+    <h4 class="text-2xl font-bold text-green-400 mb-4">Solution</h4>
+    <p class="text-base md:text-lg leading-relaxed">
+      Pour se protéger contre les IMSI catchers et les scans GSM :
+      <br>- Utiliser le mode avion ou éteindre le téléphone lors des déplacements sensibles pour éviter les connexions aux fausses antennes.
+      <br>- Passer à des réseaux plus sécurisés comme la 4G/5G qui offrent une meilleure protection contre les interceptions (bien que pas infaillibles).
+      <br>- Installer des applications de détection d'IMSI catchers (comme Android IMSI-Catcher Detector) pour alerter sur les anomalies réseau.
+      <br>- Utiliser des communications chiffrées via des apps comme Signal ou WhatsApp au lieu des SMS/voix traditionnels.
+      <br>- Retirer la carte SIM ou utiliser des SIM anonymes/burners pour les voyages dans des zones à risque.
+    </p>
+  </div>
+</div>
+
+  <!-- CONCLUSION -->
+  <div class="mt-24 md:mt-32 text-center px-6">
+    <div class="inline-block bg-gradient-to-r from-cyan-500 to-purple-600 p-1 rounded-3xl max-w-5xl mx-auto">
+      <div class="bg-[#0a0a0a]/95 backdrop-blur-xl rounded-3xl px-10 py-12 md:px-20 md:py-16">
+        <h2 class="text-4xl md:text-6xl font-black text-cyan-400 mb-6 md:mb-8">MISSION ACCOMPLIE</h2>
+        <p class="text-lg md:text-2xl max-w-4xl mx-auto leading-relaxed">
+          Plateforme validée par les officiers cybersécurité du régiment.<br class="hidden md:block">
+          Expérience exceptionnelle au <strong class="text-pink-400">1er RPIMa</strong>.
+        </p>
+        <p class="text-2xl md:text-3xl mt-8 md:mt-12 font-bold text-purple-400">
+          Un grand merci à Sando et toute l’équipe !
+        </p>
+      </div>
+    </div>
+  </div>
+
+ <!-- Bouton retour en haut (sans JS – utilise l’ancre native) -->
+  <a href="#" class="fixed bottom-8 right-8 z-50 bg-[#fcefe3]/10 hover:bg-[#fcefe3]/20 backdrop-blur border border-[#fcefe3]/30 rounded-full p-4 transition-all hover:scale-110 shadow-2xl">
+    <svg class="w-8 h-8 md:w-10 md:h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+    </svg>
+  </a>
+
+</div>
