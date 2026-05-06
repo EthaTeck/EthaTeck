@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="fr">
+<!-- Public/includes/project-5.html – VERSION FINALE 100% TAILWIND + FULLSCREEN IMAGES SANS JS (15/11/2025) -->
+<div class="min-h-screen bg-[#222222] text-[#fcefe3] py-16 md:py-24 px-5 md:px-8 overflow-x-hidden">
+
+  <!-- Titre principal -->
+  <div class="text-center mb-16 md:mb-24">
+    <h1 class="text-6xl md:text-8xl lg:text-9xl font-black tracking-tighter leading-none bg-gradient-to-r from-cyan-400 via-white to-purple-500 bg-clip-text text-transparent drop-shadow-2xl">
+      Clé Ventoy
+    </h1>
+    <p class="mt-6 text-2xl md:text-3xl lg:text-4xl opacity-90 font-bold">Projet réalisé seul – PROJET PERSO</p>
+    <p class="mt-6 text-xl md:text-2xl max-w-6xl mx-auto leading-relaxed opacity-80">
+      Création d'une clé USB bootable multi-OS avec Ventoy pour une installation facile et flexible de systèmes d'exploitation.
+    </p>
+  </div>
+
+  <!-- Sommaire exact (basé sur le contenu fourni) - Cyan to Blue -->
+  <div class="max-w-5xl mx-auto mb-20 md:mb-28">
+    <div class="group bg-[#1a1a1a]/90 backdrop-blur-xl border border-cyan-500/40 rounded-3xl p-10 md:p-16 shadow-2xl hover:border-cyan-500/60 hover:shadow-cyan-500/50 hover:scale-105 transition-all duration-300">
+      <h2 class="text-4xl md:text-5xl font-black text-center mb-12 text-cyan-400">SOMMAIRE</h2>
+      <ul class="space-y-6 text-xl md:text-2xl text-center font-medium">
+        <li>• Prérequis : Ce qu’il te faut</li>
+        <li>• Télécharger Ventoy</li>
+        <li>• Installer Ventoy sur la clé USB</li>
+        <li>• Ajouter les fichiers ISO</li>
+        <li>• Booter sur la clé USB</li>
+        <li>• Personnaliser Ventoy (thème, fond, logo…)</li>
+        <li>• Arborescence à créer dans la clé USB</li>
+        <li>• Fichier ventoy.json</li>
+        <li>• Fichier theme.txt</li>
+        <li>• Pour la police (.pf2)</li>
+        <li>• Et pour le fond ?</li>
+        <li>• Une fois tout en place</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Section 1: Prérequis - Blue to Purple -->
+  <div class="max-w-5xl mx-auto mb-20 md:mb-28">
+    <div class="group bg-[#1a1a1a]/90 backdrop-blur-xl border border-blue-500/40 rounded-3xl p-10 md:p-16 shadow-2xl hover:border-blue-500/60 hover:shadow-blue-500/50 hover:scale-105 transition-all duration-300">
+      <h2 class="text-4xl md:text-5xl font-black text-center mb-12 text-blue-400">Prérequis : Ce qu’il te faut</h2>
+      <ul class="space-y-4 text-lg md:text-xl leading-relaxed opacity-90">
+        <li>• Une clé USB (minimum 8 Go, plus c’est grand mieux c’est).</li>
+        <li>• Le logiciel Ventoy (disponible sur https://www.ventoy.net/en/download.html).</li>
+        <li>• Des fichiers ISO (ex : Ubuntu, Windows, outils de réparation, etc.).</li>
+        <li>• Un PC (Windows ou Linux) pour préparer la clé.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Section 2: Télécharger Ventoy - Purple to Pink -->
+  <div class="max-w-5xl mx-auto mb-20 md:mb-28">
+    <div class="group bg-[#1a1a1a]/90 backdrop-blur-xl border border-purple-500/40 rounded-3xl p-10 md:p-16 shadow-2xl hover:border-purple-500/60 hover:shadow-purple-500/50 hover:scale-105 transition-all duration-300">
+      <h2 class="text-4xl md:text-5xl font-black text-center mb-12 text-purple-400">Télécharger Ventoy</h2>
+      <ol class="space-y-4 text-lg md:text-xl leading-relaxed opacity-90 list-decimal pl-6">
+        <li>Va sur le site officiel de Ventoy : https://www.ventoy.net</li>
+        <li>Clique sur Downloads et télécharge la version pour ton système (Windows ou Linux).</li>
+        <li>Une fois téléchargé, extrais le fichier ZIP.</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- Section 3: Installer Ventoy sur la clé USB - Pink to Red -->
+  <div class="max-w-5xl mx-auto mb-20 md:mb-28">
+    <div class="group bg-[#1a1a1a]/90 backdrop-blur-xl border border-pink-500/40 rounded-3xl p-10 md:p-16 shadow-2xl hover:border-pink-500/60 hover:shadow-pink-500/50 hover:scale-105 transition-all duration-300">
+      <h2 class="text-4xl md:text-5xl font-black text-center mb-12 text-pink-400">Installer Ventoy sur la clé USB</h2>
+      <ol class="space-y-4 text-lg md:text-xl leading-relaxed opacity-90 list-decimal pl-6">
+        <li>Branche ta clé USB (⚠️ sauvegarde ce qu’il y a dessus, car elle sera formatée à l’installation).</li>
+        <li>Lance Ventoy2Disk.exe (sous Windows) en tant qu’administrateur.</li>
+        <li>Dans le logiciel :
+          <ul class="space-y-2 list-disc pl-6">
+            <li>Choisis ta clé USB dans la liste déroulante.</li>
+            <li>Clique sur Install (⚠️ ça formate la clé !).</li>
+            <li>Confirme quand il te le demande.</li>
+          </ul>
+        </li>
+        <li>Une fois terminé, tu verras un message "Ventoy has been successfully installed to the device".</li>
+      </ol>
+      <p class="mt-6 text-lg md:text-xl leading-relaxed opacity-80">Ta clé est maintenant prête à recevoir des ISO !</p>
+    </div>
+  </div>
+
+  <!-- Section 4: Ajouter les fichiers ISO - Red to Orange -->
+  <div class="max-w-5xl mx-auto mb-20 md:mb-28">
+    <div class="group bg-[#1a1a1a]/90 backdrop-blur-xl border border-red-500/40 rounded-3xl p-10 md:p-16 shadow-2xl hover:border-red-500/60 hover:shadow-red-500/50 hover:scale-105 transition-all duration-300">
+      <h2 class="text-4xl md:text-5xl font-black text-center mb-12 text-red-400">Ajouter les fichiers ISO</h2>
+      <ol class="space-y-4 text-lg md:text-xl leading-relaxed opacity-90 list-decimal pl-6">
+        <li>Ouvre ta clé USB dans l’explorateur de fichiers.</li>
+        <li>Glisse-dépose les fichiers ISO que tu veux utiliser (ex : ubuntu.iso, windows10.iso, etc.).
+          <ul class="space-y-2 list-disc pl-6">
+            <li>Tu peux en mettre autant que tu veux, tant que tu as de la place sur la clé.</li>
+            <li>Pas besoin d’installer quoi que ce soit d’autre ou de modifier les ISO.</li>
+          </ul>
+        </li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- Section 5: Booter sur la clé USB - Orange to Yellow -->
+  <div class="max-w-5xl mx-auto mb-20 md:mb-28">
+    <div class="group bg-[#1a1a1a]/90 backdrop-blur-xl border border-orange-500/40 rounded-3xl p-10 md:p-16 shadow-2xl hover:border-orange-500/60 hover:shadow-orange-500/50 hover:scale-105 transition-all duration-300">
+      <h2 class="text-4xl md:text-5xl font-black text-center mb-12 text-orange-400">Booter sur la clé USB</h2>
+      <ol class="space-y-4 text-lg md:text-xl leading-relaxed opacity-90 list-decimal pl-6">
+        <li>Redémarre ton PC avec la clé branchée.</li>
+        <li>Accède au menu de démarrage (souvent F12, F2, ESC, ou DEL selon le PC).</li>
+        <li>Choisis ta clé USB comme périphérique de démarrage.</li>
+        <li>Ventoy va s’ouvrir avec un menu de sélection des ISO : utilise les flèches du clavier pour choisir celui que tu veux lancer.</li>
+      </ol>
+      <p class="mt-6 text-lg md:text-xl leading-relaxed opacity-80">✅ Et voilà ! Tu as maintenant une clé USB multi-boot prête à l'emploi, avec plein de systèmes et outils directement accessibles. Plus besoin de reformater ou de refaire une clé à chaque fois : tu ajoutes/supprimes les ISO quand tu veux, comme sur une clé normale.</p>
+    </div>
+  </div>
+
+  <!-- Section 6: Personnaliser Ventoy - Yellow to Green -->
+  <div class="max-w-5xl mx-auto mb-20 md:mb-28">
+    <div class="group bg-[#1a1a1a]/90 backdrop-blur-xl border border-yellow-500/40 rounded-3xl p-10 md:p-16 shadow-2xl hover:border-yellow-500/60 hover:shadow-yellow-500/50 hover:scale-105 transition-all duration-300">
+      <h2 class="text-4xl md:text-5xl font-black text-center mb-12 text-yellow-400">Personnaliser Ventoy (thème, fond, logo…)</h2>
+      <p class="text-lg md:text-xl leading-relaxed opacity-80">Ventoy, c’est cool. Ventoy stylé, c’est encore mieux. Tu peux personnaliser l’apparence du menu de démarrage avec un thème, une image de fond, un logo, une police, etc.</p>
+    </div>
+  </div>
+
+  <!-- Section 7: Créer le dossier ventoy - Green to Indigo -->
+  <div class="max-w-5xl mx-auto mb-20 md:mb-28">
+    <div class="group bg-[#1a1a1a]/90 backdrop-blur-xl border border-green-500/40 rounded-3xl p-10 md:p-16 shadow-2xl hover:border-green-500/60 hover:shadow-green-500/50 hover:scale-105 transition-all duration-300">
+      <h2 class="text-4xl md:text-5xl font-black text-center mb-12 text-green-400">Créer le dossier ventoy à la racine de la clé</h2>
+      <ol class="space-y-4 text-lg md:text-xl leading-relaxed opacity-90 list-decimal pl-6">
+        <li>Ouvre ta clé USB.</li>
+        <li>Crée un dossier nommé ventoy (si ce n’est pas déjà fait).</li>
+        <li>C’est dans ce dossier que tu vas mettre les fichiers de personnalisation.</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- Section 8: Ajouter un fond d’écran personnalisé - Indigo to Teal -->
+  <div class="max-w-5xl mx-auto mb-20 md:mb-28">
+    <div class="group bg-[#1a1a1a]/90 backdrop-blur-xl border border-indigo-500/40 rounded-3xl p-10 md:p-16 shadow-2xl hover:border-indigo-500/60 hover:shadow-indigo-500/50 hover:scale-105 transition-all duration-300">
+      <h2 class="text-4xl md:text-5xl font-black text-center mb-12 text-indigo-400">Ajouter un fond d’écran personnalisé</h2>
+      <ol class="space-y-4 text-lg md:text-xl leading-relaxed opacity-90 list-decimal pl-6">
+        <li>Choisis une image en .png ou .jpg (taille recommandée : 800x600, mais tu peux essayer plus grand).</li>
+        <li>Renomme ton image en background.jpg ou background.png.</li>
+        <li>Mets ce fichier dans le dossier ventoy.</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- Section 9: Utiliser un thème Ventoy complet - Teal to Lime -->
+  <div class="max-w-5xl mx-auto mb-20 md:mb-28">
+    <div class="group bg-[#1a1a1a]/90 backdrop-blur-xl border border-teal-500/40 rounded-3xl p-10 md:p-16 shadow-2xl hover:border-teal-500/60 hover:shadow-teal-500/50 hover:scale-105 transition-all duration-300">
+      <h2 class="text-4xl md:text-5xl font-black text-center mb-12 text-teal-400">Utiliser un thème Ventoy complet</h2>
+      <p class="text-lg md:text-xl leading-relaxed opacity-80">Ventoy utilise des thèmes GRUB2, donc tu peux :</p>
+      <ul class="space-y-2 list-disc pl-6 opacity-90">
+        <li>Créer ton propre thème</li>
+        <li>Ou en télécharger un tout fait (par exemple ici : https://ventoy.net/en/plugin_theme.html)</li>
+      </ul>
+      <p class="mt-4 text-lg md:text-xl leading-relaxed opacity-80">Étapes :</p>
+      <ol class="space-y-4 text-lg md:text-xl leading-relaxed opacity-90 list-decimal pl-6">
+        <li>Crée un sous-dossier : ventoy/theme</li>
+        <li>Mets dedans :
+          <ul class="space-y-2 list-disc pl-6">
+            <li>Un fichier theme.txt (le fichier de config du thème)</li>
+            <li>Ton fond d’écran</li>
+            <li>Les éventuelles polices, icônes, etc.</li>
+          </ul>
+        </li>
+      </ol>
+      <p class="mt-4 text-lg md:text-xl leading-relaxed opacity-80">Exemple de structure :</p>
+      <pre class="bg-black/50 p-4 rounded-xl text-sm md:text-base overflow-x-auto">
+/ventoy
+   ├── background.jpg (optionnel)
+   └── theme/
+         ├── theme.txt
+         ├── background.png
+         ├── font.pf2
+         └── icons/
+      </pre>
+    </div>
+  </div>
+
+  <!-- Section 10: Créer le fichier de configuration ventoy.json - Lime to Emerald -->
+  <div class="max-w-5xl mx-auto mb-20 md:mb-28">
+    <div class="group bg-[#1a1a1a]/90 backdrop-blur-xl border border-lime-500/40 rounded-3xl p-10 md:p-16 shadow-2xl hover:border-lime-500/60 hover:shadow-lime-500/50 hover:scale-105 transition-all duration-300">
+      <h2 class="text-4xl md:text-5xl font-black text-center mb-12 text-lime-400">Créer le fichier de configuration ventoy.json</h2>
+      <p class="text-lg md:text-xl leading-relaxed opacity-80">C’est ce fichier qui dit à Ventoy d’utiliser ton thème.</p>
+      <ol class="space-y-4 text-lg md:text-xl leading-relaxed opacity-90 list-decimal pl-6">
+        <li>Dans le dossier ventoy, crée un fichier appelé ventoy.json</li>
+        <li>Voici un exemple de contenu minimal :</li>
+      </ol>
+      <pre class="bg-black/50 p-4 rounded-xl text-sm md:text-base overflow-x-auto">
+{
+    "theme": {
+        "file": "/ventoy/theme/theme.txt",
+        "gfxmode": "1024x768"
+    }
+}
+      </pre>
+      <p class="mt-4 text-lg md:text-xl leading-relaxed opacity-80">Tu peux modifier la résolution (gfxmode) selon ton image ou ton écran.</p>
+    </div>
+  </div>
+
+  <!-- Section 11: Ajouter une police personnalisée - Emerald to Sky -->
+  <div class="max-w-5xl mx-auto mb-20 md:mb-28">
+    <div class="group bg-[#1a1a1a]/90 backdrop-blur-xl border border-emerald-500/40 rounded-3xl p-10 md:p-16 shadow-2xl hover:border-emerald-500/60 hover:shadow-emerald-500/50 hover:scale-105 transition-all duration-300">
+      <h2 class="text-4xl md:text-5xl font-black text-center mb-12 text-emerald-400">Ajouter une police personnalisée (facultatif)</h2>
+      <ol class="space-y-4 text-lg md:text-xl leading-relaxed opacity-90 list-decimal pl-6">
+        <li>Télécharge une police GRUB compatible (.pf2)
+          <ul class="space-y-2 list-disc pl-6">
+            <li>Tu peux convertir une police classique avec l’outil grub-mkfont</li>
+          </ul>
+        </li>
+        <li>Mets la police dans ton thème, puis dans le theme.txt, ajoute : set gfxfont=myfont</li>
+      </ol>
+      <p class="mt-6 text-lg md:text-xl leading-relaxed opacity-80">✅ Résultat Au prochain démarrage, tu auras un menu Ventoy customisé avec ton propre style, fond d’écran et thème. Ultra propre 😎</p>
+    </div>
+  </div>
+
+  <!-- Section 12: Arborescence à créer - Sky to Fuchsia -->
+  <div class="max-w-5xl mx-auto mb-20 md:mb-28">
+    <div class="group bg-[#1a1a1a]/90 backdrop-blur-xl border border-sky-500/40 rounded-3xl p-10 md:p-16 shadow-2xl hover:border-sky-500/60 hover:shadow-sky-500/50 hover:scale-105 transition-all duration-300">
+      <h2 class="text-4xl md:text-5xl font-black text-center mb-12 text-sky-400">Arborescence à créer dans ta clé USB</h2>
+      <p class="text-lg md:text-xl leading-relaxed opacity-80">Voici comment organiser tes fichiers dans ta clé USB (à la racine) :</p>
+      <pre class="bg-black/50 p-4 rounded-xl text-sm md:text-base overflow-x-auto">
+/ventoy
+   ├── ventoy.json
+   └── theme/
+         ├── theme.txt
+         ├── background.png (ou .jpg)
+         └── fonts/
+               └── UbuntuMono-Regular.pf2 (optionnel)
+      </pre>
+    </div>
+  </div>
+
+  <!-- Section 13: Fichier ventoy.json - Fuchsia to Amber -->
+  <div class="max-w-5xl mx-auto mb-20 md:mb-28">
+    <div class="group bg-[#1a1a1a]/90 backdrop-blur-xl border border-fuchsia-500/40 rounded-3xl p-10 md:p-16 shadow-2xl hover:border-fuchsia-500/60 hover:shadow-fuchsia-500/50 hover:scale-105 transition-all duration-300">
+      <h2 class="text-4xl md:text-5xl font-black text-center mb-12 text-fuchsia-400">Fichier ventoy.json</h2>
+      <p class="text-lg md:text-xl leading-relaxed opacity-80">À placer dans le dossier /ventoy :</p>
+      <pre class="bg-black/50 p-4 rounded-xl text-sm md:text-base overflow-x-auto">
+{
+    "theme": {
+        "file": "/ventoy/theme/theme.txt",
+        "gfxmode": "1024x768",
+        "display_mode": "GUI"
+    }
+}
+      </pre>
+    </div>
+  </div>
+
+  <!-- Section 14: Fichier theme.txt - Amber to Slate -->
+  <div class="max-w-5xl mx-auto mb-20 md:mb-28">
+    <div class="group bg-[#1a1a1a]/90 backdrop-blur-xl border border-amber-500/40 rounded-3xl p-10 md:p-16 shadow-2xl hover:border-amber-500/60 hover:shadow-amber-500/50 hover:scale-105 transition-all duration-300">
+      <h2 class="text-4xl md:text-5xl font-black text-center mb-12 text-amber-400">Fichier theme.txt</h2>
+      <p class="text-lg md:text-xl leading-relaxed opacity-80">À placer dans /ventoy/theme/ :</p>
+      <pre class="bg-black/50 p-4 rounded-xl text-sm md:text-base overflow-x-auto">
+# Chemin vers le fond d’écran
++ set theme_background_image=/ventoy/theme/background.png
+
+# Couleur du texte
++ set color_normal=white/black
++ set color_highlight=yellow/blue
+
+# Police personnalisée (optionnelle)
++ set gfxfont="UbuntuMono-Regular"
+
+# Style du menu
++ set menu_width=60
++ set menu_margin=10
++ set menu_padding=1
++ set menu_color_normal=white/black
++ set menu_color_highlight=black/light-gray
+
+# Curseur
++ set menu_cursor_color=red
+
+# Info système en bas
++ set theme_show_title=no
++ set theme_show_version=no
+      </pre>
+      <p class="mt-4 text-lg md:text-xl leading-relaxed opacity-80">Tu peux changer toutes les couleurs ou marges si tu veux un autre style ! 😄</p>
+    </div>
+  </div>
+
+  <!-- Section 15: Pour la police (.pf2) - Slate to Gray -->
+  <div class="max-w-5xl mx-auto mb-20 md:mb-28">
+    <div class="group bg-[#1a1a1a]/90 backdrop-blur-xl border border-slate-500/40 rounded-3xl p-10 md:p-16 shadow-2xl hover:border-slate-500/60 hover:shadow-slate-500/50 hover:scale-105 transition-all duration-300">
+      <h2 class="text-4xl md:text-5xl font-black text-center mb-12 text-slate-400">Pour la police (.pf2)</h2>
+      <ul class="space-y-4 text-lg md:text-xl leading-relaxed opacity-90 list-disc pl-6">
+        <li>Tu peux générer une police .pf2 à partir d’une .ttf avec l’outil grub-mkfont (sous Linux).</li>
+        <li>Sinon, tu peux ne pas en mettre et commenter la ligne gfxfont.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Section 16: Et pour le fond ? - Gray to Cyan -->
+  <div class="max-w-5xl mx-auto mb-20 md:mb-28">
+    <div class="group bg-[#1a1a1a]/90 backdrop-blur-xl border border-gray-500/40 rounded-3xl p-10 md:p-16 shadow-2xl hover:border-gray-500/60 hover:shadow-gray-500/50 hover:scale-105 transition-all duration-300">
+      <h2 class="text-4xl md:text-5xl font-black text-center mb-12 text-gray-400">Et pour le fond ?</h2>
+      <ul class="space-y-4 text-lg md:text-xl leading-relaxed opacity-90 list-disc pl-6">
+        <li>Prends une image en .png ou .jpg (pas trop lourde).</li>
+        <li>Nom : background.png</li>
+        <li>Place-la dans /ventoy/theme/</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Section 17: Une fois tout en place - Cyan to Cyan (solid) -->
+  <div class="max-w-5xl mx-auto mb-20 md:mb-28">
+    <div class="group bg-[#1a1a1a]/90 backdrop-blur-xl border border-cyan-500/40 rounded-3xl p-10 md:p-16 shadow-2xl hover:border-cyan-500/60 hover:shadow-cyan-500/50 hover:scale-105 transition-all duration-300">
+      <h2 class="text-4xl md:text-5xl font-black text-center mb-12 text-cyan-400">Une fois tout en place</h2>
+      <ol class="space-y-4 text-lg md:text-xl leading-relaxed opacity-90 list-decimal pl-6">
+        <li>Redémarre ton PC avec la clé branchée.</li>
+        <li>Si tout est bien configuré, le menu Ventoy s'affichera avec ton thème custom : fond d’écran, couleurs, police… c’est clean 😎</li>
+      </ol>
+    </div>
+  </div>
+
+ <!-- Bouton retour en haut (sans JS – utilise l’ancre native) -->
+  <a href="#" class="fixed bottom-8 right-8 z-50 bg-[#fcefe3]/10 hover:bg-[#fcefe3]/20 backdrop-blur border border-[#fcefe3]/30 rounded-full p-4 transition-all hover:scale-110 shadow-2xl">
+    <svg class="w-8 h-8 md:w-10 md:h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+    </svg>
+  </a>
+
+</div>
+</html>
