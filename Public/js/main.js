@@ -1,7 +1,7 @@
 // printResume
 function printCV() {
   // Ouvre le PDF dans une nouvelle fenêtre puis lance l'impression
-  const pdfWindow = window.open("assets/cvEthan.pdf", "_blank");
+  const pdfWindow = window.open("assets/CV_Mouillet-Chaudet_Ethan.pdf", "_blank");
 
   if (pdfWindow) {
     pdfWindow.focus();
