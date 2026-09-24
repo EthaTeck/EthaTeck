@@ -37,3 +37,7 @@
 .animate-fade-in-delayed {
   animation: fade-in 1s ease-out 0.5s both;
 }
+
+html {
+    scroll-behavior: smooth;
+}
