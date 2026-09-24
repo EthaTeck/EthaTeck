@@ -103,32 +103,3 @@
   </a>
 
 </main>
-
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-    const hero = document.getElementById('hero');
-    const video = document.getElementById('bg_video');
-    const target = document.getElementById('a-propos');
-
-    let isScrolling = false; // évite les déclenchements multiples
-
-    function goToAPropos() {
-        if (isScrolling) return;
-        isScrolling = true;
-        target.scrollIntoView({ behavior: 'smooth' });
-        // on relâche le verrou une fois le scroll terminé (approximatif)
-        setTimeout(() => { isScrolling = false; }, 1000);
-    }
-
-    // Clic sur la vidéo
-    video.addEventListener('click', goToAPropos);
-
-    // Molette vers le bas, uniquement tant qu'on est sur le hero
-    hero.addEventListener('wheel', (e) => {
-        if (e.deltaY > 0 && window.scrollY < window.innerHeight) {
-            e.preventDefault();
-            goToAPropos();
-        }
-    }, { passive: false });
-});
-</script>
